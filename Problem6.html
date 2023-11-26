@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Check</title>
+    <script>
+        function primeNumber() {
+            // Get user input
+            const inputNumber = document.getElementById('Input').value;
+
+            // Convert input to an integer
+            const N = parseInt(inputNumber);
+
+            // Check if N is a positive integer
+            if (N <= 0 || N % 1 !== 0) {
+                document.getElementById('outPut').innerText = "Please enter a valid positive integer.";
+                return;
+            }
+
+            // Check for prime using a loop
+            for (let i = 2; i <= Math.sqrt(N); i++) {
+                if (N % i === 0) {
+                    document.getElementById('outPut').innerText = `${N} is not a prime number.`;
+                    return;
+                }
+            }
+
+            document.getElementById('outPut').innerText = `${N} is a prime number.`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Prime Check</h1>
+
+    <div>
+        <p>
+            Enter a positive number:
+            <input type="text" name="number1" id="Input" />
+            <button type="button" onclick="primeNumber()">
+                Check Prime
+            </button>
+            <p>Please enter a valid positive integer.</p>
+        </p>
+        <div id="outPut"></div>
+    </div>
+</body>
+</html>

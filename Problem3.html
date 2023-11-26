@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Show() {
+            let books = [
+                {
+                    "title": "The Alchemist",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYVdjd7Em018m_CZ1oqP9ar1MIDchCYV4uiA&usqp=CAU",
+                    "price": 182700
+                },
+                {
+                    "title": "Learning How to learn",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3AcJcwUEKt9oMKO17Pix8or_8qnV-mOCNg&usqp=CAU",
+                    "price": 251100
+                },
+                {
+                    "title": "Thinking, Fast and Slow",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppjlsROmk_tHUwDySibSp0nT67MrwdueZJw&usqp=CAU",
+                    "price": 299700
+                }];
+                // books.sort(function(a,b){
+                //     return a.price - b.price;
+                // })
+            for (i = 0; i < books.length; i++) {
+                document.getElementById('result').innerHTML += ` <div style='flex: 15px'>
+                        <p id='title'>${books[i].title}</p>
+                        <img id='img' width=200
+                            src='${books[i].image}' />
+                        <p id='price'>
+                            ${books[i].price} VND
+                        </p>
+                    </div>`;
+            }
+        }
+    </script>
+</head>
+
+<body onload="Show()">
+
+    <div id='result' style="display: flex;"></div>
+ 
+
+</body>
+
+</html>

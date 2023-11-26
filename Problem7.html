@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMSA of N Numbers</title>
+    <script>
+        function calculateMMSA() {
+            // Get user input
+            const inputString = document.getElementById('numInput').value;
+
+            // Convert input string to an array of floating-point numbers
+            const numbers = inputString.split(',').map(num => parseFloat(num.trim()));
+
+            // Check if the array is not empty
+            if (numbers.length === 0 || isNaN(numbers[0])) {
+                document.getElementById('output').innerText = "Invalid input. Please enter valid numbers.";
+                return;
+            }
+
+            // Calculate minimal, maximal, sum, and average
+            const min = Math.min(...numbers);
+            const max = Math.max(...numbers);
+            const sum = numbers.reduce((acc, num) => acc + num, 0);
+            const avg = sum / numbers.length;
+
+            // Display the results with 2 digits after the decimal point
+            const resultString = `Min = ${min.toFixed(2)}\nMax = ${max.toFixed(2)}\nSum = ${sum.toFixed(2)}\nAvg = ${avg.toFixed(2)}`;
+
+            // Display the results in the output div
+            document.getElementById('output').innerText = resultString;
+        }
+    </script>
+</head>
+<body>
+    <h1>MMSA of N Numbers</h1>
+
+    <div>
+        <p>
+            Enter numbers separated by commas:
+            <input type="text" name="number1" id="numInput" />
+            <button type="button" onclick="calculateMMSA()">
+                Calculate MMSA
+            </button>
+        </p>
+        <div id="output"></div>
+    </div>
+</body>
+</html>
